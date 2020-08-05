@@ -1,2 +1,11 @@
-template: Hello, %s!
 defaultName: ${DW_DEFAULT_NAME:-Stranger}
+
+jdbc:
+  hostAddress: ${JDBC_URL:-jdbc:mysql://localhost:3306}
+  database: ${JDBC_SCHEMA:-hello_world}
+  jdbcUrlParams: autoReconnect=true&protocol=tcp&autoReconnectForPools=true
+  username: ${JDBC_USERNAME:-root}
+  password: ${JDBC_PASSWORD:-root}
+  maximumPoolSize: 10
+  flyway: ${JDBC_FLYWAY:-false}
+  bootstrapSchema: ${JDBC_BOOTSTRAP_SCHEMA:-true}
