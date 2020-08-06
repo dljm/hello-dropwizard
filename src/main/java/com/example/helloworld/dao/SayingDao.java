@@ -12,6 +12,7 @@ import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
 @RegisterFieldMapper(Saying.class)
 public interface SayingDao {
+
     /**
      * Gets all stored saying records
      *

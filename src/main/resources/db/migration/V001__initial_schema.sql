@@ -4,6 +4,3 @@ create table saying (
   `active` BOOLEAN DEFAULT TRUE,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
-insert into saying (content, active)
-values ('Hello, %s!', true);
