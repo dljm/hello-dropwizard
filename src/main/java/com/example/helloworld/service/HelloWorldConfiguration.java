@@ -7,8 +7,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * Configuration class mapped from config.yml by Jackson.
+ */
 public class HelloWorldConfiguration extends Configuration {
-    // Jackson is used to map config.yml to this configuration class
+
     @Valid
     @NotNull
     @JsonProperty("jdbc")

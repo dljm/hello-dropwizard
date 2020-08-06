@@ -3,6 +3,7 @@ package com.example.helloworld.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Saying {
+
     private long id;
     private String content;
     private boolean active;
@@ -17,7 +18,7 @@ public class Saying {
         this.active = active;
     }
 
-    @JsonProperty // Jackson serialization
+    @JsonProperty
     public long getId() {
         return id;
     }

@@ -43,12 +43,11 @@ public class HelloWorldService extends Application<HelloWorldConfiguration> {
         });
 
         // Health checks, check them out at http://localhost:8081/healthcheck
-        JDBIHealthCheck jdbiHealthCheck = new JDBIHealthCheck(dataSource);
+        JDBIHealthCheck jdbiHealthCheck = new JDBIHealthCheck(jdbi);
         environment.healthChecks().register("Database Health Check", jdbiHealthCheck);
 
         // Bind resources
-        HelloWorldResource helloWorldResource = new HelloWorldResource(sayingDao, configuration.getDefaultName());
-        environment.jersey().register(helloWorldResource);
+        environment.jersey().register(HelloWorldResource.class);
     }
 
     @Override
@@ -58,7 +57,7 @@ public class HelloWorldService extends Application<HelloWorldConfiguration> {
 
     @Override
     public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
-        // Manage custom environment variables
+        // Enable environment variable substitution in config.yml
         bootstrap.setConfigurationSourceProvider(new SubstitutingSourceProvider(
                 bootstrap.getConfigurationSourceProvider(), new EnvironmentVariableSubstitutor(false)));
     }
